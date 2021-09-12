@@ -7,7 +7,7 @@ let userForm = new UserForm();
 
 userForm.loginFormCallback = (data) => { //функция, которая будет выполняться при попытке авторизации
     ApiConnector.login(data, (response)=>{
-        if (response.success === true) {
+        if (response.success) {
             location.reload();
         }
         else {
@@ -18,8 +18,7 @@ userForm.loginFormCallback = (data) => { //функция, которая буд
 
 userForm.registerFormCallback = (data) => { //функция, которая будет выполняться при попытке регистрации
     ApiConnector.register(data, (response) => { //объект, который содержит логин и пароль
-       if (response.success === true) {
-           userForm.id = response.id;
+       if (response.success) {
            location.reload();
        }
        else {
